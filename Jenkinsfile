@@ -12,7 +12,7 @@ pipeline {
   triggers { pollSCM('H/5 * * * *') }
   stages {
     stage('run foodcritic'){
-      agent { docker { image readProperties.imageChefdk-knife } }
+      agent { docker { image readProperties.imageChefdk } }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Foodcritic ############"
@@ -21,7 +21,7 @@ pipeline {
     }
     stage('run rubocop'){
       agent {
-        docker { image readProperties.imageChefdk-knife }
+        docker { image readProperties.imageChefdk }
       }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
@@ -31,7 +31,7 @@ pipeline {
     }
     stage('unit test'){
       agent {
-        docker { image readProperties.imageChefdk-knife }
+        docker { image readProperties.imageChefdk }
       }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
@@ -41,7 +41,7 @@ pipeline {
     }
     stage('integration test'){
       agent {
-        docker { image readProperties.imageChefdk-knife }
+        docker { image readProperties.imageChefdk }
       }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
@@ -66,7 +66,7 @@ pipeline {
     }
     stage('Knife cookbook upload'){
       agent {
-        docker { image readProperties.imageChefdk-knife }
+        docker { image readProperties.imageChefdk }
       }
       when { expression{ env.BRANCH_NAME == "master" } }
       steps{
