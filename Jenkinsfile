@@ -70,7 +70,7 @@ pipeline {
       }
       when { expression{ env.BRANCH_NAME == "master" } }
       steps{
-        echo "knife cookbook upload "
+        echo "###knife cookbook upload####"
       }
     }
   }
