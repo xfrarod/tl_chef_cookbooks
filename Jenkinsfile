@@ -20,7 +20,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Foodcritic ############"
-        sh 'foodcritic -B cookbook/apache/ || exit 0'
+        sh 'foodcritic -B cookbook/apt/ || exit 0'
       }
     }
     stage('run rubocop'){
@@ -32,7 +32,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Rubocop ############"
-        //sh 'rubocop .cookbooks/apache/ || exit 0'
+        sh 'rubocop .cookbooks/apt/ || exit 0'
       }
     }
     stage('unit test'){
@@ -72,7 +72,7 @@ pipeline {
       }
       when { expression{ env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        createPR "jenkinsdou", readProperties.title, "master", env.BRANCH_NAME, "mons3rrat"
+        createPR "mons3rrat", readProperties.title, "master", env.BRANCH_NAME, "mons3rrat"
         slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#00FF00', message: "Please review and approve PR to merge changes to dev branch : https://github.com/mons3rrat/tl_chef_cookbooks/pulls"
         }
     }
