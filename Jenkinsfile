@@ -49,7 +49,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running UnitTest ############"
-        sh 'bundle exec rspec spec'
+        sh 'chef exec rspec .cookbooks/apt/'
       }
     }
     stage("Approval step"){
