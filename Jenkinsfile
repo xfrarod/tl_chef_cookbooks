@@ -72,8 +72,8 @@ pipeline {
       }
       when { expression{ env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        createPR "jenkinsdou", readProperties.title, "master", env.BRANCH_NAME, "xfrarod"
-        slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#00FF00', message: "Please review and approve PR to merge changes to dev branch : https://github.com/xfrarod/tl_chef_cookbooks/pulls"
+        createPR "jenkinsdou", readProperties.title, "master", env.BRANCH_NAME, "mons3rrat"
+        slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#00FF00', message: "Please review and approve PR to merge changes to dev branch : https://github.com/mons3rrat/tl_chef_cookbooks/pulls"
         }
     }
     stage('Knife cookbook upload'){
