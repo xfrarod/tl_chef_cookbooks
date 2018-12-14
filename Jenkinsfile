@@ -85,6 +85,9 @@ pipeline {
       }
     }
     always {
+      agent {
+        docker { image readProperties.imagePipeline }
+      }
           sh "docker system prune -f"
     }
   }
