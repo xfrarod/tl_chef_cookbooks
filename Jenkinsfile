@@ -12,7 +12,11 @@ pipeline {
   triggers { pollSCM('H/5 * * * *') }
   stages {
     stage('run foodcritic'){
-      agent { docker { image readProperties.imageChefdk } }
+      agent {
+        docker {
+          image readProperties.imageChefdk
+          }
+        }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Foodcritic ############"
@@ -21,7 +25,9 @@ pipeline {
     }
     stage('run rubocop'){
       agent {
-        docker { image readProperties.imageChefdk }
+        docker {
+          image readProperties.imageChefdk
+        }
       }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
@@ -31,7 +37,9 @@ pipeline {
     }
     stage('unit test'){
       agent {
-        docker { image readProperties.imageChefdk }
+        docker {
+          image readProperties.imageChefdk
+        }
       }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
@@ -41,7 +49,9 @@ pipeline {
     }
     stage('integration test'){
       agent {
-        docker { image readProperties.imageChefdk }
+        docker {
+          image readProperties.imageChefdk
+        }
       }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
@@ -56,7 +66,9 @@ pipeline {
     }
     stage('Generate PR'){
       agent {
-        docker { image readProperties.imagePipeline }
+        docker {
+          image readProperties.imagePipeline
+        }
       }
       when { expression{ env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
@@ -66,7 +78,9 @@ pipeline {
     }
     stage('Knife cookbook upload'){
       agent {
-        docker { image readProperties.imageChefdk }
+        docker {
+          image readProperties.imageChefdk
+        }
       }
       when { expression{ env.BRANCH_NAME == "master" } }
       steps{
@@ -86,7 +100,9 @@ pipeline {
     }
     always {
       agent {
-        docker { image readProperties.imagePipeline }
+        docker {
+          image readProperties.imagePipeline
+        }
       }
           sh "docker system prune -f"
     }
