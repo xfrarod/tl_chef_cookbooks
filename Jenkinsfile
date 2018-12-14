@@ -98,13 +98,8 @@ pipeline {
         slackSend baseUrl: readProperties.slack, channel: '##cloudeng_notification', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
       }
     }
-    always {
-      agent {
-        docker {
-          image readProperties.imagePipeline
-        }
-      }
-          sh "docker system prune -f"
-    }
+  //  always {
+  //        sh "docker system prune -f"
+  //  }
   }
 }
