@@ -49,18 +49,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running UnitTest ############"
-        sh 'chef exec rspec'
-      }
-    }
-    stage('integration test'){
-      agent {
-        docker {
-          image readProperties.imageChefdk
-        }
-      }
-      when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
-      steps{
-        echo "############ Running Integration Test ############"
+        sh 'bundle exec rspec spec'
       }
     }
     stage("Approval step"){
