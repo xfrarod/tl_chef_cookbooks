@@ -20,7 +20,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Foodcritic ############"
-        sh 'foodcritic -B .cookbook/apache/ || exit 0'
+        sh 'foodcritic -B cookbook/apache/ || exit 0'
       }
     }
     stage('run rubocop'){
