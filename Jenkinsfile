@@ -24,7 +24,7 @@ pipeline {
       }
       post{
         always {
-          recordIssues enabledForFailure: true, tools: [[tool: [$class: 'Foodcritic']]]
+          warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''
         }
       }
     }
