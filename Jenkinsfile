@@ -72,7 +72,7 @@ pipeline {
       }
       when { expression{ env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        createPR "mons3rrat", readProperties.title, "dev", env.BRANCH_NAME, "xfrarod"
+        createPR "jenkinsdou", readProperties.title, "master", env.BRANCH_NAME, "xfrarod"
         slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#00FF00', message: "Please review and approve PR to merge changes to dev branch : https://github.com/xfrarod/tl_chef_cookbooks/pulls"
         }
     }
