@@ -22,10 +22,10 @@ pipeline {
         echo "############ Running Foodcritic ############"
         sh 'foodcritic -B cookbook/apt/ || exit 0'
       }
-    }
-    post{
-      always {
-        recordIssues enabledForFailure: true, tools: [[tool: [$class: 'Foodcritic']]]
+      post{
+        always {
+          recordIssues enabledForFailure: true, tools: [[tool: [$class: 'Foodcritic']]]
+        }
       }
     }
     stage('run rubocop'){
