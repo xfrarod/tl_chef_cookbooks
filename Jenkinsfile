@@ -1,6 +1,6 @@
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
-  agent none
+  agent any
   environment {
     AWS_ACCESS_KEY_ID = credentials('aws_access_key')
     AWS_SECRET_ACCESS_KEY = credentials('aws_secret_key')
@@ -88,7 +88,7 @@ pipeline {
       }
     }
   }
-  /*post {
+  post {
     success {
       slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
     }
@@ -98,8 +98,8 @@ pipeline {
         slackSend baseUrl: readProperties.slack, channel: '##cloudeng_notification', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
       }
     }
-  //  always {
-  //        sh "docker system prune -f"
-  //  }
-  } */
+    always {
+          sh "docker system prune -f"
+    }
+  }
 }
