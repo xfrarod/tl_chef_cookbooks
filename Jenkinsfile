@@ -24,7 +24,7 @@ pipeline {
       }
       post{
         always {
-          warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: '', unHealthy: ''
+          warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '100', includePattern: '', messagesPattern: '', unHealthy: ''
         }
       }
     }
@@ -77,7 +77,7 @@ pipeline {
       }
       when { expression{ env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        createPR "mons3rrat", readProperties.title, "master", env.BRANCH_NAME, "mons3rrat"
+        createPR "jenkinsdou", readProperties.title, "master", env.BRANCH_NAME, "mons3rrat"
         slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#00FF00', message: "Please review and approve PR to merge changes to dev branch : https://github.com/mons3rrat/tl_chef_cookbooks/pulls"
         }
     }
