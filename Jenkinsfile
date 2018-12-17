@@ -46,6 +46,7 @@ pipeline {
     }
     stage("Approval step"){
       agent none
+      when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         input message: "Do you want to create a PR to master branch?", ok: 'Approve'
       }
