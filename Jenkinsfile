@@ -70,7 +70,7 @@ pipeline {
       }
       when { expression{ env.BRANCH_NAME == "master" } }
       steps{
-        sh 'knife cookbook upload -o .cookbooks/ apt -V'
+        sh 'knife cookbook upload -o ./ apt -V'
       }
     }
   }
