@@ -49,7 +49,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running UnitTest ############"
-        sh 'chef exec rspec .cookbooks/apt/'
+        sh 'chef exec rspec'
       }
     }
     stage("Approval step"){
@@ -78,7 +78,7 @@ pipeline {
       }
       when { expression{ env.BRANCH_NAME == "master" } }
       steps{
-        echo "###knife cookbook upload####"
+        sh 'knife cookbook upload apt -V'
       }
     }
   }
