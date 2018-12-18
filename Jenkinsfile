@@ -1,6 +1,10 @@
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
   agent any
+  environment {
+      TOKEN = credentials('gh-token')
+      TF_PLUGIN_CACHE_DIR = '/plugins'
+  }
   triggers { pollSCM('H/5 * * * *') }
   stages {
     stage('run foodcritic'){
