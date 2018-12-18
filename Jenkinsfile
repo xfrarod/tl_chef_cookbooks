@@ -23,7 +23,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Rubocop ############"
-        sh 'rubocop –L cookbooks/apt/ || exit 0'
+        sh 'rubocop cookbooks/apt/ || exit 0'
       }
     }
     stage('unit test'){
