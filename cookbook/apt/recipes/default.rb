@@ -2,6 +2,7 @@
 # Cookbook Name:: apt
 # Recipe:: default
 #
+#
 # Copyright 2008-2013, Chef Software, Inc.
 # Copyright 2009, Bryan McLellan <btm@loftninjas.org>
 #
