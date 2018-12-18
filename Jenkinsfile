@@ -69,9 +69,9 @@ pipeline {
           image readProperties.imageChefdk
         }
       }
-      when { expression{ env.BRANCH_NAME == "master" } }
+      //when { expression{ env.BRANCH_NAME == "master" } }
       steps{
-        sh 'knife cookbook upload -o ./ apt -V'
+        sh 'knife cookbook upload -o . apt -V'
       }
     }
   }
@@ -85,8 +85,19 @@ pipeline {
         slackSend baseUrl: readProperties.slack, channel: '##cloudeng_notification', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
       }
     }
-    always {
-          sh "docker system prune -f"
+    //always {
+      //    sh "docker system prune -f"
+    //}
+  }
+}
+
+
+def callKnife(String name, String path="./"){
+  withCredentials([file(credentialsId: 'chef-client-key', variable: 'KEY' )]) {
+    //configFileProvider([configFile(fileId: 'knife-config', variable: 'KNIFE_CONFIG')]) {
+      sh "mkdir ./cookbooks"
+      sh "mv * cookbooks || exit 0"
+      sh "knife cookbook upload -o ${path} -c ${KNIFE_CONFIG} -k ${KEY} ${name}"
     }
   }
 }
