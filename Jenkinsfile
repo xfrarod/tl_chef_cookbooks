@@ -1,6 +1,6 @@
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
-  agent swarm
+  agent { swarm }
   environment {
       TOKEN = credentials('gh-token')
       TF_PLUGIN_CACHE_DIR = '/plugins'
