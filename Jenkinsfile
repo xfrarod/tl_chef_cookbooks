@@ -90,7 +90,7 @@ pipeline {
     //}
   }
 }
-
+}
 
 def callKnife(String name, String path="./"){
   withCredentials([file(credentialsId: 'chef-client-key', variable: 'KEY' )]) {
@@ -100,4 +100,3 @@ def callKnife(String name, String path="./"){
       sh "knife cookbook upload -o ${path} -c ${KNIFE_CONFIG} -k ${KEY} ${name}"
     }
   }
-}
