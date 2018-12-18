@@ -8,11 +8,7 @@ pipeline {
   triggers { pollSCM('H/5 * * * *') }
   stages {
     stage('run foodcritic'){
-      agent {
-        docker {
-          image readProperties.imageChefdk
-          }
-        }
+      agent { docker { image readProperties.imageChefdk } }
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Foodcritic ############"
@@ -70,7 +66,7 @@ pipeline {
     stage('Knife cookbook upload'){
       agent {
         docker {
-          image readProperties.imageChefdk
+          image readProperties.imageChefServer
         }
       }
       //when { expression{ env.BRANCH_NAME == "master" } }
