@@ -1,6 +1,6 @@
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
-  agent any
+  agent swarm
   environment {
       TOKEN = credentials('gh-token')
       TF_PLUGIN_CACHE_DIR = '/plugins'
@@ -8,11 +8,11 @@ pipeline {
   triggers { pollSCM('H/5 * * * *') }
   stages {
     stage('run foodcritic'){
-      agent {
+      /*agent {
         docker {
           image readProperties.imageChefdk
           }
-        }
+        }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Foodcritic ############"
@@ -25,11 +25,11 @@ pipeline {
       }
     }
     stage('run rubocop'){
-      agent {
+      /*agent {
         docker {
           image readProperties.imageChefdk
         }
-      }
+      }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Rubocop ############"
@@ -37,11 +37,11 @@ pipeline {
       }
     }
     stage('unit test'){
-      agent {
+      /*agent {
         docker {
           image readProperties.imageChefdk
         }
-      }
+      }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running UnitTest ############"
@@ -56,11 +56,11 @@ pipeline {
       }
     }
     stage('Generate PR'){
-      agent {
+      /*agent {
         docker {
           image readProperties.imagePipeline
         }
-      }
+      }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         createPR "jenkinsdou", readProperties.title, "master", env.BRANCH_NAME, "mons3rrat"
@@ -68,11 +68,11 @@ pipeline {
         }
     }
     stage('Knife cookbook upload'){
-      agent {
+      /*agent {
         docker {
           image readProperties.imageChefServer
         }
-      }
+      }*/
       //when { expression{ env.BRANCH_NAME == "master" } }
       steps{
         sh 'knife cookbook upload -o /cookbook apt -V'
