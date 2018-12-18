@@ -90,7 +90,7 @@ pipeline {
     //}
   }
 }
-}
+
 
 def callKnife(String name, String path="./"){
   withCredentials([file(credentialsId: 'chef-client-key', variable: 'KEY' )]) {
