@@ -23,7 +23,10 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Rubocop ############"
-        sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ || exit 0'
+        ///sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ || exit 0'
+        sh """sudo su
+              /opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ -r rubocop/formatter/checkstyle_formatter -f RuboCop::Formatter::CheckstyleFormatter -o int-lint-results.xml
+              exit"""
       }
       post{
         always{
