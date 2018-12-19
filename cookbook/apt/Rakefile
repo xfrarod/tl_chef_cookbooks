@@ -5,13 +5,8 @@ require 'kitchen'
 
 # Style tests. Rubocop and Foodcritic
 namespace :style do
-
   desc 'Run Ruby style checks'
-  RuboCop::RakeTask.new(:ruby) do |task|
-    task.fail_on_error = true
-    task.formatters = ['RuboCop::Formatter::CheckstyleFormatter']
-    task.options = ['--out', 'int-lint-results.xml']
-  end
+  RuboCop::RakeTask.new(:ruby)
 
   desc 'Run Chef style checks'
   FoodCritic::Rake::LintTask.new(:chef) do |t|
