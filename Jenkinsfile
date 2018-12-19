@@ -8,11 +8,6 @@ pipeline {
   triggers { pollSCM('H/5 * * * *') }
   stages {
     stage('run foodcritic'){
-      /*agent {
-        docker {
-          image readProperties.imageChefdk
-          }
-        }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Foodcritic ############"
@@ -25,23 +20,18 @@ pipeline {
       }
     }
     stage('run rubocop'){
-      /*agent {
-        docker {
-          image readProperties.imageChefdk
-        }
-      }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Rubocop ############"
-        sh 'rubocop –L cookbooks/apt/ || exit 0'
+        sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ || exit 0'
+      }
+      post{
+        always{
+          checkstyle canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: 'int-lint-results.xml', unHealthy: ''
+        }
       }
     }
     stage('unit test'){
-      /*agent {
-        docker {
-          image readProperties.imageChefdk
-        }
-      }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running UnitTest ############"
@@ -56,11 +46,6 @@ pipeline {
       }
     }
     stage('Generate PR'){
-      /*agent {
-        docker {
-          image readProperties.imagePipeline
-        }
-      }*/
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         createPR "jenkinsdou", readProperties.title, "master", env.BRANCH_NAME, "xfrarod"
@@ -68,12 +53,6 @@ pipeline {
         }
     }
     stage('Knife cookbook upload'){
-      /*agent {
-        docker {
-          image readProperties.imageChefServer
-        }
-      }*/
-      //when { expression{ env.BRANCH_NAME == "master" } }
       steps{
         sh 'knife cookbook upload apt -V'
       }
@@ -89,8 +68,5 @@ pipeline {
         slackSend baseUrl: readProperties.slack, channel: '##cloudeng_notification', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
       }
     }
-    //always {
-      //    sh "docker system prune -f"
-    //}
   }
 }
