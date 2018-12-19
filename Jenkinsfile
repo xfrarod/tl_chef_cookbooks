@@ -24,11 +24,7 @@ pipeline {
       steps{
         echo "############ Running Rubocop ############"
         sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ || exit 0'
-      }
-      post{
-        always {
-          warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Rubocop']], defaultEncoding: '', excludePattern: '', healthy: '100', includePattern: '', messagesPattern: '', unHealthy: ''
-        }
+        checkstyle pattern: '**/target/checkstyle-result.xml'
       }
     }
     stage('unit test'){
