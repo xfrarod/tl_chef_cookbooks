@@ -23,8 +23,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         echo "############ Running Rubocop ############"
-        sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ || exit 0'
-        checkstyle pattern: '**/target/checkstyle-result.xml'
+        sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/  --require rubocop/formatter/checkstyle_formatter --format RuboCop::Formatter::CheckstyleFormatter -o reports/xml/checkstyle-result.xml --format html -o reports/html/index.html || exit 0'
       }
     }
     stage('unit test'){
