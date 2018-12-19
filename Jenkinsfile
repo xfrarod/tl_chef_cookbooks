@@ -25,6 +25,11 @@ pipeline {
         echo "############ Running Rubocop ############"
         sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ || exit 0'
       }
+      post{
+        always {
+          warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Rubocop']], defaultEncoding: '', excludePattern: '', healthy: '100', includePattern: '', messagesPattern: '', unHealthy: ''
+        }
+      }
     }
     stage('unit test'){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
