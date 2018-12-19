@@ -30,7 +30,7 @@ MethodLength:
   Enabled: true
 SignalException:
   Enabled: true
-TrailingCommaInLiteral:
+TrailingCommaInArrayLiteral:
   Enabled: true
 TrailingCommaInArguments:
   Enabled: true
