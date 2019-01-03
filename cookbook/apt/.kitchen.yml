@@ -1,18 +1,13 @@
 driver:
-  name: vagrant
+  name: docker
+
+provisioner:
+  name: chef_zero
 
 platforms:
-  - name: debian-7.2.0
+  - name: ubuntu-16.0.4
     run_list: apt::default
-  - name: ubuntu-10.04
-    run_list: apt::default
-  - name: ubuntu-12.04
-    run_list: apt::default
-  - name: ubuntu-13.04
-    run_list: apt::default
-  - name: ubuntu-13.10
-    run_list: apt::default
-  - name: ubuntu-14.0.4
+  - name: ubuntu-18.0.4
     run_list: apt::default
 
 suites:
@@ -55,4 +50,3 @@ suites:
       apt:
         unattended_upgrades:
           enabled: true
-
