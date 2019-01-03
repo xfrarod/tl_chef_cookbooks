@@ -33,11 +33,11 @@ pipeline {
         }
       }
     }
-    stage("Kitchen test - lower environment"){
+    stage("Kitchen test"){
       agent none
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        input message: "Do you want to create a PR to master branch?", ok: 'Approve'
+        sh 'kitchen test'
       }
     }
     stage("Approval step"){
