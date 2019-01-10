@@ -14,7 +14,7 @@ platforms:
       run_command: /bin/systemd
       privileged: true
     links:
-      - jenkins-slave:jenkins-slave
+      - jenkins-slave
   - name: centos-7
     driver_config:
       run_command: /usr/sbin/init
@@ -22,7 +22,7 @@ platforms:
       provision_command:
         - systemctl enable sshd.service
     links:
-      - jenkins-slave:jenkins-slave
+      - jenkins-slave
 
 suites:
   - name: default
