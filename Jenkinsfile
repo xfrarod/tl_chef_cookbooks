@@ -7,36 +7,38 @@ pipeline {
   }
   triggers { pollSCM('H/5 * * * *') }
   stages {
-    stage('run foodcritic'){
+    stage('Lint'){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        echo "############ Running Foodcritic ############"
-        sh 'foodcritic -B cookbook/apt/ || exit 0'
+        parallel(
+            Test1:  {
+              echo "############ Running Foodcritic ############"
+              sh 'foodcritic -B cookbook/apt/ || exit 0'
+            },
+            Test2:  {
+              echo "############ Running Rubocop ############"
+              sh 'sudo su --command "/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ -r rubocop/formatter/checkstyle_formatter -f RuboCop::Formatter::CheckstyleFormatter -o int-lint-results.xml" || exit 0'
+
+            },
+            Test3:  {
+              echo "############ Running UnitTest ############"
+              sh 'chef exec rspec'
+            }
+        )
       }
       post{
         always {
           warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '100', includePattern: '', messagesPattern: '', unHealthy: ''
-        }
-      }
-    }
-    stage('run rubocop'){
-      when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
-      steps{
-        echo "############ Running Rubocop ############"
-        ///sh '/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ || exit 0'
-        sh 'sudo su --command "/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ -r rubocop/formatter/checkstyle_formatter -f RuboCop::Formatter::CheckstyleFormatter -o int-lint-results.xml" || exit 0'
-      }
-      post{
-        always{
           checkstyle canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: 'int-lint-results.xml', unHealthy: ''
         }
       }
     }
-    stage('unit test'){
+    stage("Kitchen test"){
+      agent none
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        echo "############ Running UnitTest ############"
-        sh 'chef exec rspec'
+        sh 'cd cookbook/apt/'
+        sh 'kitchen test'
       }
     }
     stage("Approval step"){
@@ -54,6 +56,7 @@ pipeline {
         }
     }
     stage('Knife cookbook upload'){
+      when { expression{ env.BRANCH_NAME == 'master'} }
       steps{
         sh 'knife cookbook upload apt -V'
       }
@@ -66,7 +69,7 @@ pipeline {
     failure {
       script{
         def commiter_user = sh "git log -1 --format='%ae'"
-        slackSend baseUrl: readProperties.slack, channel: '##cloudeng_notification', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+        slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
       }
     }
   }
