@@ -45,9 +45,9 @@ pipeline {
         """
       }*/
       steps{
-          stash includes: 'cookbook/custom_nginx/', name: 'tk-cookbooks'
+          //stash includes: 'cookbook/custom_nginx/', name: 'tk-cookbooks'
         script {
-          unstash name: 'tk-cookbooks'
+          //unstash name: 'tk-cookbooks'
           kitchenParallel (this.getInstances())
         }
       }
