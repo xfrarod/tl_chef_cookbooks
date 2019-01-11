@@ -22,7 +22,10 @@ pipeline {
             },
             Test3:  {
               echo "############ Running ChefSpec ############"
-              sh 'chef exec rspec'
+              sh """
+                  cd cookbook/custom_nginx/
+                  chef exec rspec
+              """
             }
         )
       }
@@ -36,11 +39,14 @@ pipeline {
     stage("Kitchen test"){
       agent none
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
-      steps{
+      /*steps{
         sh """
             cd cookbook/custom_nginx/
             kitchen test
         """
+      }*/
+      steps{
+        kitchenParallel 
       }
     }
     stage("Approval step"){
