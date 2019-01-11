@@ -37,7 +37,6 @@ pipeline {
       }
     }
     stage("Kitchen test"){
-      agent none
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       /*steps{
         sh """
@@ -46,7 +45,9 @@ pipeline {
         """
       }*/
       steps{
-        kitchenParallel 
+        script {
+          kitchenParallel (this.getInstances())
+        }
       }
     }
     stage("Approval step"){
