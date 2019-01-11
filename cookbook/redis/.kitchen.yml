@@ -4,6 +4,7 @@ driver:
   use_sudo: false
   run_options:
     net: chefnetwork
+  hostname: centos-7
 
 provisioner:
   name: chef_zero
