@@ -16,6 +16,10 @@ platforms:
     driver_config:
       run_command: /bin/systemd
       privileged: true
+  - name: ubuntu-18.04
+    driver_config:
+      run_command: /bin/systemd
+      privileged: true
   - name: centos-7
     driver_config:
       run_command: /usr/sbin/init
