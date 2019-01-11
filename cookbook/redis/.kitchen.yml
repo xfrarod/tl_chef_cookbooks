@@ -3,8 +3,10 @@ driver:
   name: docker
   use_sudo: false
   run_options:
-    net: chefnetwork
+    net: bridge
   instance_name: centos-7
+  #network:
+  #- ["private_network", { ip: "192.168.33.101" }]
 
 provisioner:
   name: chef_zero
