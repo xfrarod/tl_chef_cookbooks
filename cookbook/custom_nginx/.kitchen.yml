@@ -1,6 +1,9 @@
 ---
 driver:
   name: docker
+  use_sudo: false
+  run_options:
+    net: bridge
 provisioner:
   name: chef_zero
   always_update_cookbooks: true
