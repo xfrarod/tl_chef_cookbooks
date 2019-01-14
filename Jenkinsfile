@@ -7,38 +7,43 @@ pipeline {
   }
   triggers { pollSCM('H/5 * * * *') }
   stages {
-    stage('Lint'){
+    stage('Running Foodcritic'){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        parallel(
-            Test1:  {
-              echo "############ Running Foodcritic ############"
-              sh 'foodcritic -B cookbook/apt/ || exit 0'
-            },
-            Test2:  {
-              echo "############ Running Rubocop ############"
-              sh 'sudo su --command "/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ -r rubocop/formatter/checkstyle_formatter -f RuboCop::Formatter::CheckstyleFormatter -o int-lint-results.xml" || exit 0'
-
-            },
-            Test3:  {
-              echo "############ Running UnitTest ############"
-              sh 'chef exec rspec'
-            }
-        )
+        sh 'foodcritic -B cookbook/apt/ || exit 0'
       }
       post{
         always {
           warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '100', includePattern: '', messagesPattern: '', unHealthy: ''
+        }
+      }
+    }
+    stage('Running Rubocop'){
+      when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
+      steps{
+        sh 'sudo su --command "/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ -r rubocop/formatter/checkstyle_formatter -f RuboCop::Formatter::CheckstyleFormatter -o int-lint-results.xml" || exit 0'
+      }
+      post{
+        always {
           checkstyle canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: 'int-lint-results.xml', unHealthy: ''
         }
       }
     }
-    stage("Kitchen test"){
-      agent none
+    stage('Running ChefSpec'){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-        sh 'cd cookbook/apt/'
-        sh 'kitchen test'
+        sh """
+            cd cookbook/custom_nginx/
+            chef exec rspec
+        """
+      }
+    }
+    stage("Kitchen test"){
+      when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
+      steps{
+        script {
+          kitchenParallel (this.getInstances())
+        }
       }
     }
     stage("Approval step"){
