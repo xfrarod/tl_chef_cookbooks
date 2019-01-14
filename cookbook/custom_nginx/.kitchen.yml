@@ -2,10 +2,10 @@
 driver:
   name: docker
   use_sudo: false
-  run_options:
-    net: bridge
-  links:
-    - jenkins-slave
+  #run_options:
+  #  net: bridge
+  #links:
+  #  - jenkins-slave
 provisioner:
   name: chef_zero
   always_update_cookbooks: true
