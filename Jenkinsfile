@@ -7,7 +7,7 @@ pipeline {
   }
   triggers { pollSCM('H/5 * * * *') }
   stages {
-    stage('Running Foodcritic'){
+    stage('Foodcritic'){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         sh 'foodcritic -B cookbook/apt/ || exit 0'
@@ -18,7 +18,7 @@ pipeline {
         }
       }
     }
-    stage('Running Rubocop'){
+    stage('Rubocop'){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         sh 'sudo su --command "/opt/chefdk/embedded/bin/rubocop –L cookbook/apt/ -r rubocop/formatter/checkstyle_formatter -f RuboCop::Formatter::CheckstyleFormatter -o int-lint-results.xml" || exit 0'
@@ -29,7 +29,7 @@ pipeline {
         }
       }
     }
-    stage('Running ChefSpec'){
+    stage('ChefSpec'){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         sh """
@@ -63,7 +63,7 @@ pipeline {
     stage('Knife cookbook upload'){
       when { expression{ env.BRANCH_NAME == 'master'} }
       steps{
-        sh 'knife cookbook upload apt -V'
+        sh 'knife cookbook upload custom_nginx -V'
       }
     }
   }

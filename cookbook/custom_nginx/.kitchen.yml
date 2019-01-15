@@ -2,10 +2,6 @@
 driver:
   name: docker
   use_sudo: false
-  #run_options:
-  #  net: bridge
-  #links:
-  #  - jenkins-slave
 provisioner:
   name: chef_zero
   always_update_cookbooks: true
@@ -20,6 +16,8 @@ platforms:
     driver_config:
       run_command: /bin/systemd
       privileged: true
+      provision_command:
+        - apt-get install -y net-tools gnupg
   - name: centos-7
     driver_config:
       run_command: /usr/sbin/init
