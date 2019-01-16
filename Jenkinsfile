@@ -46,6 +46,14 @@ pipeline {
         }
       }
     }
+    stage("Bumping version"){
+      when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
+      steps{
+        script {
+          bumpingVersion()
+        }
+      }
+    }
     stage("Approval step"){
       agent none
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
