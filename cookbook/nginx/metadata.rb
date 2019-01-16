@@ -9,10 +9,6 @@ version '9.0.0'
 recipe 'nginx', 'Installs nginx package and sets up configuration with Debian apache style with sites-enabled/sites-available'
 recipe 'nginx::source', 'Installs nginx from source and sets up configuration with Debian apache style with sites-enabled/sites-available'
 
-depends 'build-essential', '>= 5.0'
-depends 'ohai', '>= 4.1.0'
-depends 'yum-epel'
-
 supports 'amazon'
 supports 'centos'
 supports 'debian'
