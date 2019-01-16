@@ -33,7 +33,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         sh """
-            cd cookbook/custom_nginx/
+            cd cookbook/apt/
             chef exec rspec
         """
       }
@@ -71,7 +71,7 @@ pipeline {
     stage('Knife cookbook upload'){
       when { expression{ env.BRANCH_NAME == 'master'} }
       steps{
-        sh 'knife cookbook upload apt -V'
+        sh 'knife cookbook upload custom_nginx -V'
       }
     }
   }
