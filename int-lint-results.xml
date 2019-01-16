@@ -1,0 +1,194 @@
+<?xml version='1.0'?>
+<checkstyle>
+  <file name='cookbook/apt/metadata.rb'>
+    <error line='12' column='0' severity='info' message='Style/PercentLiteralDelimiters: `%w`-literals should be delimited by `[` and `]`.' source='com.puppycrawl.tools.checkstyle.Style/PercentLiteralDelimiters'/>
+    <error line='12' column='3' severity='info' message='Layout/SpaceInsidePercentLiteralDelimiters: Do not use spaces inside percent literal delimiters.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceInsidePercentLiteralDelimiters'/>
+    <error line='12' column='17' severity='info' message='Layout/SpaceInsidePercentLiteralDelimiters: Do not use spaces inside percent literal delimiters.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceInsidePercentLiteralDelimiters'/>
+    <error line='17' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='18' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='21' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='22' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='25' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='26' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='29' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='30' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='33' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='34' column='10' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+  </file>
+  <file name='cookbook/apt/Gemfile'>
+    <error line='6' column='2' severity='info' message='Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem `rainbow` should appear before `rubocop`.' source='com.puppycrawl.tools.checkstyle.Bundler/OrderedGems'/>
+    <error line='29' column='2' severity='info' message='Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem `growl` should appear before `ruby_gntp`.' source='com.puppycrawl.tools.checkstyle.Bundler/OrderedGems'/>
+    <error line='31' column='2' severity='info' message='Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem `guard` should appear before `rb-fsevent`.' source='com.puppycrawl.tools.checkstyle.Bundler/OrderedGems'/>
+    <error line='33' column='2' severity='info' message='Bundler/OrderedGems: Gems should be sorted in an alphabetical order within their section of the Gemfile. Gem `guard-foodcritic` should appear before `guard-kitchen`.' source='com.puppycrawl.tools.checkstyle.Bundler/OrderedGems'/>
+  </file>
+  <file name='cookbook/apt/Berksfile'>
+    <error line='6' column='11' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+    <error line='7' column='11' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+    <error line='7' column='23' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='7' column='32' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+  </file>
+  <file name='cookbook/apt/Rakefile'>
+    <error line='24' column='5' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+    <error line='47' column='35' severity='info' message='Layout/SpaceInsideParens: Space inside parentheses detected.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceInsideParens'/>
+  </file>
+  <file name='cookbook/apt/Guardfile'/>
+  <file name='cookbook/apt/recipes/default.rb'>
+    <error line='29' column='59' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+    <error line='32' column='42' severity='info' message='Layout/SpaceInsideParens: Space inside parentheses detected.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceInsideParens'/>
+    <error line='32' column='137' severity='info' message='Layout/SpaceInsideParens: Space inside parentheses detected.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceInsideParens'/>
+    <error line='37' column='0' severity='info' message='Naming/HeredocDelimiterNaming: Use meaningful heredoc delimiters.' source='com.puppycrawl.tools.checkstyle.Naming/HeredocDelimiterNaming'/>
+    <error line='86' column='4' severity='info' message='Layout/MultilineOperationIndentation: Use 2 (not 0) spaces for indenting an expression spanning multiple lines.' source='com.puppycrawl.tools.checkstyle.Layout/MultilineOperationIndentation'/>
+    <error line='87' column='4' severity='info' message='Layout/MultilineOperationIndentation: Use 2 (not 0) spaces for indenting an expression spanning multiple lines.' source='com.puppycrawl.tools.checkstyle.Layout/MultilineOperationIndentation'/>
+    <error line='91' column='0' severity='info' message='Style/PercentLiteralDelimiters: `%w`-literals should be delimited by `[` and `]`.' source='com.puppycrawl.tools.checkstyle.Style/PercentLiteralDelimiters'/>
+    <error line='95' column='10' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+  </file>
+  <file name='cookbook/apt/recipes/cacher-client.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-client.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='20' column='0' severity='info' message='Style/Documentation: Missing top-level class documentation comment.' source='com.puppycrawl.tools.checkstyle.Style/Documentation'/>
+    <error line='20' column='6' severity='info' message='Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.' source='com.puppycrawl.tools.checkstyle.Style/ClassAndModuleChildren'/>
+    <error line='46' column='30' severity='info' message='Style/ZeroLengthPredicate: Use `!empty?` instead of `length &gt; 0`.' source='com.puppycrawl.tools.checkstyle.Style/ZeroLengthPredicate'/>
+    <error line='53' column='3' severity='info' message='Style/ZeroLengthPredicate: Use `!empty?` instead of `length &gt; 0`.' source='com.puppycrawl.tools.checkstyle.Style/ZeroLengthPredicate'/>
+    <error line='55' column='2' severity='info' message='Style/ConditionalAssignment: Use the return of the conditional for variable assignment and comparison.' source='com.puppycrawl.tools.checkstyle.Style/ConditionalAssignment'/>
+    <error line='64' column='9' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='66' column='6' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='67' column='6' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='68' column='6' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='69' column='6' severity='info' message='Layout/ClosingParenthesisIndentation: Indent `)` the same as the start of the line where `(` is.' source='com.puppycrawl.tools.checkstyle.Layout/ClosingParenthesisIndentation'/>
+  </file>
+  <file name='cookbook/apt/recipes/cacher-ng.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-ng.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='29' column='7' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='36' column='7' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='41' column='11' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='41' column='29' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='42' column='9' severity='info' message='Style/SymbolArray: Use `%i` or `%I` for an array of symbols.' source='com.puppycrawl.tools.checkstyle.Style/SymbolArray'/>
+  </file>
+  <file name='cookbook/apt/recipes/unattended-upgrades.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`unattended-upgrades.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='31' column='0' severity='info' message='Style/IfUnlessModifier: Favor modifier `if` usage when having a single-line body. Another good alternative is the usage of control flow `&amp;&amp;`/`||`.' source='com.puppycrawl.tools.checkstyle.Style/IfUnlessModifier'/>
+  </file>
+  <file name='cookbook/apt/resources/repository.rb'>
+    <error line='30' column='22' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='30' column='42' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='31' column='16' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='32' column='25' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='33' column='23' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='33' column='42' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='34' column='17' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='34' column='37' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='35' column='20' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='35' column='57' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='37' column='20' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='38' column='22' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='38' column='42' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='39' column='16' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='39' column='36' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='40' column='21' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='40' column='41' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='43' column='26' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='43' column='63' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+  </file>
+  <file name='cookbook/apt/resources/preference.rb'>
+    <error line='29' column='25' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='29' column='45' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='30' column='17' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='31' column='16' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+    <error line='32' column='25' severity='info' message='Style/HashSyntax: Use the new Ruby 1.9 hash syntax.' source='com.puppycrawl.tools.checkstyle.Style/HashSyntax'/>
+  </file>
+  <file name='cookbook/apt/libraries/helpers.rb'>
+    <error line='34' column='10' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+    <error line='34' column='20' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+    <error line='34' column='30' severity='info' message='Style/StringLiterals: Prefer single-quoted strings when you don&apos;t need string interpolation or special symbols.' source='com.puppycrawl.tools.checkstyle.Style/StringLiterals'/>
+    <error line='35' column='59' severity='info' message='Style/PercentLiteralDelimiters: `%w`-literals should be delimited by `[` and `]`.' source='com.puppycrawl.tools.checkstyle.Style/PercentLiteralDelimiters'/>
+  </file>
+  <file name='cookbook/apt/libraries/matchers.rb'/>
+  <file name='cookbook/apt/libraries/network.rb'>
+    <error line='20' column='0' severity='info' message='Style/Documentation: Missing top-level module documentation comment.' source='com.puppycrawl.tools.checkstyle.Style/Documentation'/>
+    <error line='20' column='7' severity='info' message='Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.' source='com.puppycrawl.tools.checkstyle.Style/ClassAndModuleChildren'/>
+    <error line='22' column='4' severity='info' message='Style/GuardClause: Use a guard clause instead of wrapping the code inside a conditional expression.' source='com.puppycrawl.tools.checkstyle.Style/GuardClause'/>
+    <error line='28' column='6' severity='info' message='Style/RedundantReturn: Redundant `return` detected.' source='com.puppycrawl.tools.checkstyle.Style/RedundantReturn'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/files/default/tests/minitest/cacher-ng-client_test.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-ng-client_test.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='20' column='13' severity='info' message='Style/ExpandPathArguments: Use `expand_path(&apos;support/helpers&apos;, __dir__)` instead of `expand_path(&apos;../support/helpers&apos;, __FILE__)`.' source='com.puppycrawl.tools.checkstyle.Style/ExpandPathArguments'/>
+    <error line='40' column='0' severity='info' message='Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end.' source='com.puppycrawl.tools.checkstyle.Layout/EmptyLinesAroundBlockBody'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/files/default/tests/minitest/lwrps_test.rb'>
+    <error line='20' column='13' severity='info' message='Style/ExpandPathArguments: Use `expand_path(&apos;support/helpers&apos;, __dir__)` instead of `expand_path(&apos;../support/helpers&apos;, __FILE__)`.' source='com.puppycrawl.tools.checkstyle.Style/ExpandPathArguments'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/files/default/tests/minitest/cacher-ng_test.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-ng_test.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='20' column='13' severity='info' message='Style/ExpandPathArguments: Use `expand_path(&apos;support/helpers&apos;, __dir__)` instead of `expand_path(&apos;../support/helpers&apos;, __FILE__)`.' source='com.puppycrawl.tools.checkstyle.Style/ExpandPathArguments'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/files/default/tests/minitest/cacher-client_test.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-client_test.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='20' column='13' severity='info' message='Style/ExpandPathArguments: Use `expand_path(&apos;support/helpers&apos;, __dir__)` instead of `expand_path(&apos;../support/helpers&apos;, __FILE__)`.' source='com.puppycrawl.tools.checkstyle.Style/ExpandPathArguments'/>
+    <error line='28' column='0' severity='info' message='Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end.' source='com.puppycrawl.tools.checkstyle.Layout/EmptyLinesAroundBlockBody'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/files/default/tests/minitest/support/helpers.rb'/>
+  <file name='cookbook/apt/test/cookbooks/apt_test/files/default/tests/minitest/default_test.rb'>
+    <error line='20' column='13' severity='info' message='Style/ExpandPathArguments: Use `expand_path(&apos;support/helpers&apos;, __dir__)` instead of `expand_path(&apos;../support/helpers&apos;, __FILE__)`.' source='com.puppycrawl.tools.checkstyle.Style/ExpandPathArguments'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/metadata.rb'/>
+  <file name='cookbook/apt/test/cookbooks/apt_test/recipes/default.rb'/>
+  <file name='cookbook/apt/test/cookbooks/apt_test/recipes/cacher-ng-client.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-ng-client.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/recipes/cacher-client.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-client.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/recipes/cacher-ng.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-ng.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/recipes/unattended-upgrades.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`unattended-upgrades.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+  </file>
+  <file name='cookbook/apt/test/cookbooks/apt_test/recipes/lwrps.rb'/>
+  <file name='cookbook/apt/spec/spec_helper.rb'/>
+  <file name='cookbook/apt/spec/unattended-upgrades_spec.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`unattended-upgrades_spec.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+  </file>
+  <file name='cookbook/apt/spec/cacher-client_spec.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-client_spec.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='4' column='0' severity='info' message='Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning.' source='com.puppycrawl.tools.checkstyle.Layout/EmptyLinesAroundBlockBody'/>
+  </file>
+  <file name='cookbook/apt/spec/cacher-ng_spec.rb'>
+    <error line='1' column='0' severity='info' message='Naming/FileName: The name of this source file (`cacher-ng_spec.rb`) should use snake_case.' source='com.puppycrawl.tools.checkstyle.Naming/FileName'/>
+    <error line='4' column='0' severity='info' message='Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning.' source='com.puppycrawl.tools.checkstyle.Layout/EmptyLinesAroundBlockBody'/>
+  </file>
+  <file name='cookbook/apt/spec/default_spec.rb'/>
+  <file name='cookbook/apt/providers/repository.rb'>
+    <error line='27' column='0' severity='info' message='Metrics/AbcSize: Assignment Branch Condition size for install_key_from_keyserver is too high. [17.03/15]' source='com.puppycrawl.tools.checkstyle.Metrics/AbcSize'/>
+    <error line='27' column='0' severity='info' message='Metrics/MethodLength: Method has too many lines. [13/10]' source='com.puppycrawl.tools.checkstyle.Metrics/MethodLength'/>
+    <error line='48' column='9' severity='warning' message='Lint/AssignmentInCondition: Use `==` if you meant to do a comparison or wrap the expression in parentheses to indicate you meant to assign in a condition.' source='com.puppycrawl.tools.checkstyle.Lint/AssignmentInCondition'/>
+    <error line='55' column='0' severity='info' message='Metrics/AbcSize: Assignment Branch Condition size for install_key_from_uri is too high. [31.27/15]' source='com.puppycrawl.tools.checkstyle.Metrics/AbcSize'/>
+    <error line='55' column='0' severity='info' message='Metrics/MethodLength: Method has too many lines. [25/10]' source='com.puppycrawl.tools.checkstyle.Metrics/MethodLength'/>
+    <error line='56' column='23' severity='info' message='Style/RegexpLiteral: Use `%r` around regular expression.' source='com.puppycrawl.tools.checkstyle.Style/RegexpLiteral'/>
+    <error line='61' column='11' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='68' column='11' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='85' column='0' severity='info' message='Metrics/CyclomaticComplexity: Cyclomatic complexity for build_repo is too high. [7/6]' source='com.puppycrawl.tools.checkstyle.Metrics/CyclomaticComplexity'/>
+    <error line='85' column='14' severity='info' message='Metrics/ParameterLists: Avoid parameter lists longer than 5 parameters. [6/5]' source='com.puppycrawl.tools.checkstyle.Metrics/ParameterLists'/>
+    <error line='98' column='0' severity='info' message='Metrics/AbcSize: Assignment Branch Condition size for get_ppa_key is too high. [17.03/15]' source='com.puppycrawl.tools.checkstyle.Metrics/AbcSize'/>
+    <error line='98' column='0' severity='info' message='Metrics/MethodLength: Method has too many lines. [14/10]' source='com.puppycrawl.tools.checkstyle.Metrics/MethodLength'/>
+    <error line='107' column='14' severity='info' message='Style/FormatString: Favor `format` over `sprintf`.' source='com.puppycrawl.tools.checkstyle.Style/FormatString'/>
+    <error line='109' column='13' severity='info' message='Security/Open: The use of `Kernel#open` is a serious security risk.' source='com.puppycrawl.tools.checkstyle.Security/Open'/>
+    <error line='123' column='13' severity='info' message='Layout/ExtraSpacing: Unnecessary spacing detected.' source='com.puppycrawl.tools.checkstyle.Layout/ExtraSpacing'/>
+    <error line='123' column='20' severity='info' message='Layout/SpaceAroundOperators: Operator `=` should be surrounded by a single space.' source='com.puppycrawl.tools.checkstyle.Layout/SpaceAroundOperators'/>
+    <error line='136' column='2' severity='info' message='Style/FormatString: Favor `format` over `sprintf`.' source='com.puppycrawl.tools.checkstyle.Style/FormatString'/>
+    <error line='139' column='0' severity='info' message='Metrics/BlockLength: Block has too many lines. [46/25]' source='com.puppycrawl.tools.checkstyle.Metrics/BlockLength'/>
+    <error line='163' column='2' severity='info' message='Style/ConditionalAssignment: Use the return of the conditional for variable assignment and comparison.' source='com.puppycrawl.tools.checkstyle.Style/ConditionalAssignment'/>
+    <error line='172' column='6' severity='info' message='Layout/ClosingParenthesisIndentation: Indent `)` the same as the start of the line where `(` is.' source='com.puppycrawl.tools.checkstyle.Layout/ClosingParenthesisIndentation'/>
+    <error line='182' column='6' severity='info' message='Layout/ClosingParenthesisIndentation: Indent `)` the same as the start of the line where `(` is.' source='com.puppycrawl.tools.checkstyle.Layout/ClosingParenthesisIndentation'/>
+    <error line='188' column='9' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='197' column='12' severity='warning' message='Lint/DeprecatedClassMethods: `File.exists?` is deprecated in favor of `File.exist?`.' source='com.puppycrawl.tools.checkstyle.Lint/DeprecatedClassMethods'/>
+  </file>
+  <file name='cookbook/apt/providers/preference.rb'>
+    <error line='25' column='0' severity='info' message='Metrics/BlockLength: Block has too many lines. [29/25]' source='com.puppycrawl.tools.checkstyle.Metrics/BlockLength'/>
+    <error line='32' column='4' severity='info' message='Layout/ClosingParenthesisIndentation: Indent `)` the same as the start of the line where `(` is.' source='com.puppycrawl.tools.checkstyle.Layout/ClosingParenthesisIndentation'/>
+    <error line='37' column='9' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='44' column='14' severity='warning' message='Lint/DeprecatedClassMethods: `File.exists?` is deprecated in favor of `File.exist?`.' source='com.puppycrawl.tools.checkstyle.Lint/DeprecatedClassMethods'/>
+    <error line='52' column='9' severity='info' message='Style/NumericLiteralPrefix: Use 0o for octal literals.' source='com.puppycrawl.tools.checkstyle.Style/NumericLiteralPrefix'/>
+    <error line='65' column='12' severity='warning' message='Lint/DeprecatedClassMethods: `File.exists?` is deprecated in favor of `File.exist?`.' source='com.puppycrawl.tools.checkstyle.Lint/DeprecatedClassMethods'/>
+  </file>
+  <file name='cookbook/apt/attributes/default.rb'/>
+</checkstyle>
