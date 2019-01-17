@@ -47,7 +47,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         script {
-          bumpingVersion("custom_nginx")
+          bumpingVersion()
         }
       }
     }
