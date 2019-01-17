@@ -47,7 +47,10 @@ pipeline {
     stage("Bumping version"){
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
-          bumpingVersion()
+          script{
+            choice = new ChoiceParameterDefinition('Version Part:', ['patch', 'minor', 'major'] as String[], '')
+            versionPart = input message: 'Bump major, minor or patch version?', parameters: [choice]
+          }
         }
       }
     stage("Approval step"){
