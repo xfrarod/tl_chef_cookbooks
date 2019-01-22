@@ -39,20 +39,10 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         script {
-          //kitchenParallel (this.getInstances())
-          echo 'kitchen test'
+          kitchenParallel (this.getInstances())
         }
       }
     }
-    stage("Bumping version"){
-      when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
-      steps{
-          script{
-            choice = new ChoiceParameterDefinition('Version Part:', ['patch', 'minor', 'major'] as String[], '')
-            versionPart = input message: 'Bump major, minor or patch version?', parameters: [choice]
-          }
-        }
-      }
     stage("Approval step"){
       agent none
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
