@@ -1,6 +1,10 @@
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
-  agent any
+  agent {
+      docker {
+          image 'xfrarod/jenkins-slave:latest'
+      }
+  }
   environment {
       TOKEN = credentials('gh-token')
       TF_PLUGIN_CACHE_DIR = '/plugins'
