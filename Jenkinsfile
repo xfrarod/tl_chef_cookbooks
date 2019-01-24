@@ -1,8 +1,10 @@
+Library("shared_sf_library@${env.BRANCH_NAME}")_
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
   agent {
       docker {
           image 'xfrarod/jenkins-slave:latest'
+          args '-v tf_plugins:/plugins'
       }
   }
   environment {
@@ -19,6 +21,9 @@ pipeline {
       post{
         always {
           warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '100', includePattern: '', messagesPattern: '', unHealthy: ''
+        }
+        failure {
+            currentBuild.result = 'UNSTABLE'
         }
       }
     }
