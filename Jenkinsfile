@@ -1,12 +1,7 @@
 Library("shared_sf_library@${env.BRANCH_NAME}")_
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
-  agent {
-      docker {
-          image 'xfrarod/jenkins-slave:latest'
-          args '-v tf_plugins:/plugins'
-      }
-  }
+  agent any
   environment {
       TOKEN = credentials('gh-token')
       TF_PLUGIN_CACHE_DIR = '/plugins'
