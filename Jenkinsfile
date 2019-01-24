@@ -1,4 +1,3 @@
-Library("shared_sf_library@${env.BRANCH_NAME}")_
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
   agent any
