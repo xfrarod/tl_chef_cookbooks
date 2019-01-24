@@ -70,6 +70,7 @@ pipeline {
   post {
     success {
       //slackSend baseUrl: readProperties.slack, channel: '#cloudeng_notification', color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
+      echo "success"
     }
     failure {
       script{
