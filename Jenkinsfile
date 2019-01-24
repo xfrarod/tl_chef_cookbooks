@@ -18,7 +18,7 @@ pipeline {
           warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Foodcritic']], defaultEncoding: '', excludePattern: '', healthy: '100', includePattern: '', messagesPattern: '', unHealthy: ''
         }
         failure {
-            currentBuild.result = 'UNSTABLE'
+            script{ currentBuild.result = 'UNSTABLE' }
         }
       }
     }
