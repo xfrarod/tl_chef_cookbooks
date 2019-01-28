@@ -1,3 +1,4 @@
+import groovy.json.*
 readProperties = loadConfigurationFile 'buildConfiguration'
 pipeline {
   agent { label 'swarm'}
@@ -79,4 +80,10 @@ pipeline {
       }
     }
   }
+}
+
+def loadConfigurationFile (String fileName){
+  def resourceFile =  libraryResource "com/sf/${fileName}.json"
+	assert resourceFile.indexOf("'") == -1 : "Invalid JSON File"
+    return new JsonSlurperClassic().parseText(new JsonBuilder(new JsonSlurper().setType(JsonParserType.LAX).parseText(resourceFile)).toString())
 }
