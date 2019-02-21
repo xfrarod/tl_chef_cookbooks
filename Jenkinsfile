@@ -63,7 +63,7 @@ pipeline {
     stage('Knife cookbook upload'){
       when { expression{ env.BRANCH_NAME == 'master'} }
       steps{
-        sh 'knife cookbook upload custom_nginx -V'
+        sh "knife cookbook upload custom_nginx -V --config-option cookbook_path='cookbook/'"
       }
     }
   }
