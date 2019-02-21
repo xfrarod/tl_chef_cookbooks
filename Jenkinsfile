@@ -33,7 +33,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         sh """
-            cd cookbook/custom_nginx/
+            cd cookbook/apt/
             chef exec rspec
         """
       }
@@ -42,7 +42,7 @@ pipeline {
       when { expression{ env.BRANCH_NAME ==~ /dev.*/ || env.BRANCH_NAME ==~ /PR.*/ || env.BRANCH_NAME ==~ /feat.*/ } }
       steps{
         script {
-          kitchenParallel (this.getInstances())
+          kitchenParallel (this.getInstances(), "custom_nginx")
         }
       }
     }
